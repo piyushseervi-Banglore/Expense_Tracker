@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Expense Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <header class="app-header">
+    <div>
+      <h1>Expense Tracker</h1>
+      <p class="subtitle">Track and manage your daily expenses</p>
+    </div>
+
+    <div class="summary-card">
+      <span>Total Spent</span>
+      <strong>
+        <span class="currency">₹</span>
+        <span id="totalAmount">0</span>
+      </strong>
+    </div>
+  </header>
+
+  <section class="card">
+    <form id="expenseForm" class="expense-form">
+      <input type="text" id="title" placeholder="Expense title" required>
+      <input type="number" id="amount" placeholder="Amount" required>
+
+      <div class="select-wrapper">
+        <select id="category" required>
+          <option value="">Category</option>
+          <option>Food</option>
+          <option>Transport</option>
+          <option>Entertainment</option>
+          <option>Utilities</option>
+        </select>
+      </div>
+
+      <button type="submit">Add</button>
+    </form>
+  </section>
+
+  <section class="card">
+    <input type="search" id="search" placeholder="Search by title or category">
+  </section>
+
+  <section class="card list-card">
+    <ul id="expenseList"></ul>
+    <p id="emptyState" class="empty-state">No expenses found</p>
+  </section>
+
+</div>
+
+<template id="expenseTemplate">
+  <li class="expense">
+    <div class="left">
+      <strong class="title"></strong>
+      <span class="category badge"></span>
+    </div>
+    <span class="amount"></span>
+    <button class="delete" title="Delete expense">✕</button>
+  </li>
+</template>
+
+<script src="app.js"></script>
+</body>
+</html>
